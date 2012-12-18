@@ -1,0 +1,30 @@
+#!/bin/bash
+
+echo "Preparing..."
+git checkout master
+rm -r tmp
+
+echo "Building the Mercury repository..."
+mercury module repository make ./tmp
+
+echo "Switching to the *repository* branch..."
+git checkout repository
+
+echo "Clearing out the old Repository..."
+ls -l |awk '{ print $9 }' |grep -v tmp |grep -v README.md |xargs rm -rf
+
+echo "Moving the new Repository into place..."
+mv tmp/* ./
+
+echo "Cleaning up..."
+rm -rf tmp
+
+echo "Updating Git..."
+git add .
+git commit -m "updating Mercury module repository"
+#git push
+
+echo "Switching back to the *master* branch..."
+git checkout master
+
+echo "Done."
