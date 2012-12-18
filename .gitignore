@@ -1,0 +1,9 @@
+*.apk
+*.hg
+*.pyc
+.profile
+build/*
+dist/*
+log/*.log
+src/mercury.egg-info
+mercury.log
