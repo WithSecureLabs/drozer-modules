@@ -22,7 +22,7 @@ rm -rf tmp
 echo "Updating Git..."
 git add .
 git commit -a
-#git push
+git push
 
 echo "Switching back to the *master* branch..."
 git checkout master
