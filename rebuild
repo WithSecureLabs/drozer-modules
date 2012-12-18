@@ -21,7 +21,7 @@ rm -rf tmp
 
 echo "Updating Git..."
 git add .
-git commit -m "updating Mercury module repository"
+git commit -a
 #git push
 
 echo "Switching back to the *master* branch..."
