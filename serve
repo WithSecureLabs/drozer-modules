@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "Switching into the Repository..."
+git checkout repository
+
+echo "Starting the Server..."
+python -m SimpleHTTPServer
+
+echo "Cleaning up..."
+git checkout master
