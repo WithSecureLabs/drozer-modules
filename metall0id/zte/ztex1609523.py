@@ -20,7 +20,7 @@ This exploit has been reported to work on the ZTE Score M and the ZTE Skate.
     
     def isVulnerable(self, arguments):
         
-        if self.shellExec("ls /system/bin/sync_agent").strip().endswith("sync_agent"):
+        if self.exists("/system/bin/sync_agent"):
             return True
         else:
             return False
