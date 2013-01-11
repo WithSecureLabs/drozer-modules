@@ -5,7 +5,7 @@ git checkout master
 rm -r tmp
 
 echo "Building the Mercury repository..."
-mercury module repository make ./tmp
+mercury-build-repository ./tmp
 
 echo "Switching to the *repository* branch..."
 git checkout repository
