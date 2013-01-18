@@ -1,6 +1,6 @@
 from mwr.droidhg.modules import common, Module
 
-class ZTESyncAgent(Module, common.Vulnerability, common.Shell, common.ClassLoader):
+class ZTESyncAgent(Module, common.Vulnerability, common.Shell, common.ClassLoader, common.FileSystem):
     
     name = "Obtain a root shell on a ZTE Score M and ZTE Skate."
     description = """Exploit the setuid-root binary at /system/bin/sync_agent on certain ZTE devices to gain a root shell. It is as simple as providing it with the argument "ztex1609523", which is the hard-coded password in the binary.
