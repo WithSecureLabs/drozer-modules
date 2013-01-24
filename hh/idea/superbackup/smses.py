@@ -1,4 +1,3 @@
-import re
 import time
 
 from xml.etree import ElementTree

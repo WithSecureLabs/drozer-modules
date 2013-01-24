@@ -31,4 +31,8 @@ class Messages(Module, common.ClassLoader, common.Provider):
             self.stdout.write("Written %d bytes. You can open this file with sqlite3.\n" % len(data))
         else:
             self.stdout.write("Failed to read database.")
+
+    def get_completion_suggestions(self, action, text, **kwargs):
+        if action.dest == "target":
+            return common.path_completion.on_console(text)
             

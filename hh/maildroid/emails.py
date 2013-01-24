@@ -1,8 +1,3 @@
-import re
-import time
-
-from xml.etree import ElementTree
-
 from mwr.common import fs
 from mwr.droidhg.modules import common, Module
 
@@ -28,4 +23,8 @@ class Emails(Module, common.ClassLoader, common.FileSystem):
             self.stdout.write("Copied %d bytes. Open the target with sqlite.\n\n")
         else:
             self.stdout.write("Could not copy the MailDroid database.\n\n")
+
+    def get_completion_suggestions(self, action, text, **kwargs):
+        if action.dest == "target":
+            return common.path_completion.on_console(text)
             

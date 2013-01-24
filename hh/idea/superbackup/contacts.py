@@ -60,6 +60,10 @@ class Contacts(Module, common.ClassLoader, common.FileSystem):
                 length = fs.write(arguments.output, reduce(lambda x,y: "%s\n\n%s" % (x, y), contacts))
                 
                 self.stdout.write("Written %d bytes to %s.\n\n" % (length, arguments.output))
+
+    def get_completion_suggestions(self, action, text, **kwargs):
+        if action.dest == "output":
+            return common.path_completion.on_console(text)
         
     def __next_vcard(self, data, offset=0):
         vcard = None
