@@ -4,6 +4,10 @@ echo "Preparing..."
 git checkout master
 rm -r tmp
 
+make clean
+make apks
+make native-libraries
+
 echo "Building the Mercury repository..."
 mercury-build-repository ./tmp
 
