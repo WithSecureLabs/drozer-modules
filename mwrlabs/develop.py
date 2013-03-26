@@ -1,3 +1,4 @@
+import os
 import pdb
 
 from mwr.droidhg.modules import common, Module
@@ -17,5 +18,7 @@ class Interactive(Module, common.assets.Assets, common.busy_box.BusyBox, common.
 
     def execute(self, arguments):
         self.stdout.write("Entering an interactive Python shell. Type 'c' to end.\n\n")
-        pdb.set_trace()
         
+        self.push_completer(self.null_complete, os.path.sep.join([os.path.expanduser("~"), ".mercury_pyhistory"]))
+        pdb.set_trace()
+        self.pop_completer()
