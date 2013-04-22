@@ -4,7 +4,7 @@ import subprocess, os, time
 class Screenshot(Module, common.ClassLoader, common.FileSystem, common.Shell, common.SuperUser):
 
     name = "Take a screenshot of the device"
-    description = "Take a screenshot of the device. Relies on minimal-su being correcly installed on the device (see tools.setup.su)"
+    description = "Take a screenshot of the device. Relies on minimal-su being correcly installed on the device (see tools.setup.minimalsu)"
     examples = """mercury> run post.capture.screenshot
 Done.
 """
@@ -15,9 +15,9 @@ Done.
 
     def execute(self, arguments):
         
-        # Check for existence of su
-        if not self.isSuInstalled():
-            self.stdout.write("[x] No su binary available (see tools.setup.su). Exiting...\n")
+        # Check for existence of minimal-su
+        if not self.isMinimalSuInstalled():
+            self.stdout.write("[x] No su binary available (see tools.setup.minimalsu). Exiting...\n")
             return
             
         # Make timestamped file name
@@ -33,6 +33,9 @@ Done.
         
         # Download
         length = self.downloadFile("/data/data/com.mwr.droidhg.agent/screenshot.png", filename)
+        
+        # Remove screenshot from device
+        self.shellExec("su -c \"rm /data/data/com.mwr.droidhg.agent/screenshot.png\"")
         
         if length != None:
             self.stdout.write("Done.\n")
