@@ -17,6 +17,7 @@ mercury> run post.capture.microphone /home/user/Desktop/test.3gp
     date = "2013-04-22"
     license = "MWR Code License"
     path = ["post", "capture"]
+    permissions = ["android.permission.RECORD_AUDIO"]
     
     def add_arguments(self, parser):
         parser.add_argument("destination", help="destination to save recording (.3gp extension)")
