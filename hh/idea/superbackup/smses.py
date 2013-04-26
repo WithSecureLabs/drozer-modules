@@ -5,7 +5,7 @@ from xml.etree import ElementTree
 from mwr.common import fs
 from mwr.droidhg.modules import common, Module
 
-class SMSes(Module, common.ClassLoader, common.FileSystem):
+class SMSes(Module, common.FileSystem, common.ClassLoader):
     
     name = "Grab SMS messages exported by Super Backup"
     description = """Grabs SMS messages backed up to the SD card by 'Super Backup : SMS & Contacts' (com.idea.backup.smscontacts)."""

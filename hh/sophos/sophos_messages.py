@@ -4,7 +4,7 @@ from mwr.common import fs
 
 from mwr.droidhg.modules import common, Module
 
-class Messages(Module, common.ClassLoader, common.Provider):
+class Messages(Module, common.Provider, common.ClassLoader):
     
     name = "Steal the Messages database from Sophos Mobile Control"
     description = """Extracts the Messages database from Sophos Mobile Control (com.sophos.mobilecontrol.client.android), using a directory traversal vulnerability."""

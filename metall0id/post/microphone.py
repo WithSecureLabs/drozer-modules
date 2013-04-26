@@ -1,6 +1,6 @@
 from mwr.droidhg.modules import common, Module
 
-class Microphone(Module, common.ClassLoader, common.FileSystem, common.Shell):
+class Microphone(Module, common.Shell, common.FileSystem, common.ClassLoader):
 
     name = "Record sound from the microphone"
     description = "Record sound from the microphone and store it in a 3GP sound file. Relies on the agent having the RECORD_AUDIO permission."

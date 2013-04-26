@@ -1,7 +1,7 @@
 from mwr.droidhg.modules import common, Module
 from mwr.droidhg import android
 
-class Call(Module, common.ClassLoader, common.FileSystem):
+class Call(Module, common.FileSystem, common.ClassLoader):
 
     name = "Call a phone number"
     description = "Call a phone number. Relies on the agent having the CALL_PHONE permission."

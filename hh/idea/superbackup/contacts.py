@@ -3,7 +3,7 @@ import re
 from mwr.common import fs
 from mwr.droidhg.modules import common, Module
 
-class Contacts(Module, common.ClassLoader, common.FileSystem):
+class Contacts(Module, common.FileSystem, common.ClassLoader):
     
     name = "Grab Contact details exported by Super Backup"
     description = """Grabs Contact details backed up to the SD card by 'Super Backup : SMS & Contacts' (com.idea.backup.smscontacts)."""

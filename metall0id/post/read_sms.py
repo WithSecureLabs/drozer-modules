@@ -1,6 +1,6 @@
 from mwr.droidhg.modules import common, Module
 
-class SMS(Module, common.ClassLoader, common.FileSystem, common.Provider, common.TableFormatter):
+class SMS(Module, common.Provider, common.TableFormatter, common.FileSystem, common.ClassLoader):
 
     name = "Read all SMS messages"
     description = "Read all SMS messages from content://sms or filter by keywords or cellphone numbers. Relies on the agent having the READ_SMS permission."

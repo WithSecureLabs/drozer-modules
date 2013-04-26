@@ -3,10 +3,10 @@ import pdb
 
 from mwr.droidhg.modules import common, Module
 
-class Interactive(Module, common.assets.Assets, common.busy_box.BusyBox, common.file_system.FileSystem,
-                  common.filtering.Filters, common.formatter.TableFormatter, common.loader.ClassLoader,
-                  common.package_manager.PackageManager, common.provider.Provider, common.shell.Shell,
-                  common.strings.Strings, common.superuser.SuperUser, common.zip_file.ZipFile):
+class Interactive(Module, common.assets.Assets, common.busy_box.BusyBox,
+                  common.filtering.Filters, common.formatter.TableFormatter, common.package_manager.PackageManager, 
+                  common.provider.Provider, common.shell.Shell, common.strings.Strings, common.superuser.SuperUser,
+                  common.zip_file.ZipFile, common.file_system.FileSystem, common.loader.ClassLoader):
     
     name = "Start an interactive Python shell"
     description = """Start a Python shell, in the context of a Mercury module. """

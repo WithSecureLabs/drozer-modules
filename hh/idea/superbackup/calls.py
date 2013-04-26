@@ -6,7 +6,7 @@ from xml.etree import ElementTree
 from mwr.common import fs
 from mwr.droidhg.modules import common, Module
 
-class Calls(Module, common.ClassLoader, common.FileSystem):
+class Calls(Module, common.FileSystem, common.ClassLoader):
     
     name = "Grab call logs exported by Super Backup"
     description = """Grabs call logs backed up to the SD card by 'Super Backup : SMS & Contacts' (com.idea.backup.smscontacts)."""

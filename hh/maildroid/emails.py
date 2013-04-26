@@ -1,7 +1,7 @@
 from mwr.common import fs
 from mwr.droidhg.modules import common, Module
 
-class Emails(Module, common.ClassLoader, common.FileSystem):
+class Emails(Module, common.FileSystem, common.ClassLoader):
     
     name = "Grab Email messages from MailDroid"
     description = """Grabs Email Messages stored on the SD card by 'MailDroid' (com.maildroid)."""

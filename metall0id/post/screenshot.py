@@ -1,7 +1,7 @@
 from mwr.droidhg.modules import common, Module
 import subprocess, os, time
 
-class Screenshot(Module, common.ClassLoader, common.FileSystem, common.Shell, common.SuperUser):
+class Screenshot(Module, common.SuperUser, common.Shell, common.FileSystem, common.ClassLoader):
 
     name = "Take a screenshot of the device"
     description = "Take a screenshot of the device. Relies on minimal-su being correcly installed on the device (see tools.setup.minimalsu)"
@@ -30,6 +30,7 @@ Done.
         
         # Take screenshot
         self.shellExec("su -c \"screencap -p /data/data/com.mwr.droidhg.agent/screenshot.png\"")
+        self.shellExec("su -c \"chmod 666 /data/data/com.mwr.droidhg.agent/screenshot.png\"")
         
         # Download
         length = self.downloadFile("/data/data/com.mwr.droidhg.agent/screenshot.png", filename)

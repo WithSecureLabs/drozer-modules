@@ -1,6 +1,6 @@
 from mwr.droidhg.modules import common, Module
 
-class CmdClient(Module, common.Vulnerability, common.Shell, common.ClassLoader, common.FileSystem):
+class CmdClient(Module, common.Vulnerability, common.Shell, common.FileSystem, common.ClassLoader):
     
     name = "Obtain a root shell on an Acer Iconia and various Motorola devices."
     description = """Exploit the setuid-root binary at /system/bin/cmdclient on certain devices to gain a root shell. Command injection vulnerabilities exist in the parsing mechanisms of the various input arguments.
