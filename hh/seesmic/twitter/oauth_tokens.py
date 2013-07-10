@@ -9,6 +9,7 @@ class OAuthTokens(Module, common.TableFormatter, common.Provider):
     date = "2012-12-17"
     license = "MWR Code License"
     path = ["exploit", "pilfer", "thirdparty", "seesmic", "twitter"]
+    permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
     
     __provider = "content://com.seesmic.twitter/accounts"
     

@@ -13,7 +13,7 @@ mercury> run post.perform.call +27123456789
     date = "2013-04-23"
     license = "MWR Code License"
     path = ["post", "perform"]
-    permissions = ["android.permission.CALL_PHONE"]
+    permissions = ["android.permission.CALL_PHONE", "com.mwr.dz.permissions.GET_CONTEXT"]
     
     def add_arguments(self, parser):
         parser.add_argument("number", help="number to call e.g. +27123456789")

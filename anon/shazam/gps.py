@@ -9,6 +9,7 @@ class GPS(Module, common.Provider, common.TableFormatter):
     date = "2012-11-06"
     license = "MWR Code License"
     path = ["exploit", "pilfer", "thirdparty", "shazam"]
+    permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
     
     __content_uri = "content://com.shazam.library.providers.freeimporttagscontentprovider/"
 
