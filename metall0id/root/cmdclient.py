@@ -1,4 +1,4 @@
-from mwr.droidhg.modules import common, Module
+from drozer.modules import common, Module
 
 class CmdClient(Module, common.Vulnerability, common.Shell, common.FileSystem, common.ClassLoader):
     

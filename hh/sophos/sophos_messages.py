@@ -2,7 +2,7 @@ import os
 
 from mwr.common import fs
 
-from mwr.droidhg.modules import common, Module
+from drozer.modules import common, Module
 
 class Messages(Module, common.Provider, common.ClassLoader):
     

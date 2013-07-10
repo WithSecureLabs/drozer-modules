@@ -1,4 +1,4 @@
-from mwr.droidhg.modules import common, Module
+from drozer.modules import common, Module
 
 class RegisteredAccounts(Module, common.Provider, common.Vulnerability):
 

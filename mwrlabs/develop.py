@@ -1,7 +1,7 @@
 import os
 import pdb
 
-from mwr.droidhg.modules import common, Module
+from drozer.modules import common, Module
 
 class Interactive(Module, common.assets.Assets, common.busy_box.BusyBox,
                   common.filtering.Filters, common.formatter.TableFormatter, common.package_manager.PackageManager, 

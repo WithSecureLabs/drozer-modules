@@ -1,5 +1,8 @@
-from mwr.droidhg.modules import common, Module
-import subprocess, os, time
+import os
+import subprocess
+import time
+
+from drozer.modules import common, Module
 
 class Screenshot(Module, common.SuperUser, common.Shell, common.FileSystem, common.ClassLoader):
 

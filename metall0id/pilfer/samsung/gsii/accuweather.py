@@ -1,4 +1,4 @@
-from mwr.droidhg.modules import common, Module
+from drozer.modules import common, Module
 
 class AccuWeather(Module, common.TableFormatter, common.Provider, common.Vulnerability):
 

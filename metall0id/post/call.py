@@ -1,5 +1,5 @@
-from mwr.droidhg.modules import common, Module
-from mwr.droidhg import android
+from drozer import android
+from drozer.modules import common, Module
 
 class Call(Module, common.FileSystem, common.ClassLoader):
 

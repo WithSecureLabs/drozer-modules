@@ -4,7 +4,7 @@ import time
 from xml.etree import ElementTree
 
 from mwr.common import fs
-from mwr.droidhg.modules import common, Module
+from drozer.modules import common, Module
 
 class Calls(Module, common.FileSystem, common.ClassLoader):
     

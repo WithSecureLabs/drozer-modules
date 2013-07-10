@@ -1,5 +1,5 @@
 from mwr.common import fs
-from mwr.droidhg.modules import common, Module
+from drozer.modules import common, Module
 
 class Emails(Module, common.FileSystem, common.ClassLoader):
     

@@ -1,4 +1,4 @@
-from mwr.droidhg.modules import common, Module
+from drozer.modules import common, Module
 
 class SMS(Module, common.Provider, common.TableFormatter, common.FileSystem, common.ClassLoader):
 

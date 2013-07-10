@@ -1,5 +1,6 @@
-from mwr.droidhg.modules import common, Module
 import os
+
+from drozer.modules import common, Module
 
 class ExynosMem(Module, common.Vulnerability, common.Shell, common.FileSystem, common.ClassLoader):
 

@@ -1,7 +1,7 @@
 import re
 
 from mwr.common import fs
-from mwr.droidhg.modules import common, Module
+from drozer.modules import common, Module
 
 class Contacts(Module, common.FileSystem, common.ClassLoader):
     
