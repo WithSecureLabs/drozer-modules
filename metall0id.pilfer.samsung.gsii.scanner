@@ -9,6 +9,7 @@ class Samsung(Module, common.VulnerabilityScanner):
     date = "2012-11-06"
     license = "MWR Code License"
     path = ["scanner", "oem"]
+    permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
 
     vulnerabilities = "exploit.pilfer.oem.samsung."
     

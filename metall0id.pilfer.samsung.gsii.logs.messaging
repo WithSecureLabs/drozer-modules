@@ -9,6 +9,7 @@ class Messaging(Module, common.Provider, common.Vulnerability):
     date = "2012-11-06"
     license = "MWR Code License"
     path = ["exploit", "pilfer", "oem", "samsung", "logs"]
+    permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
 
     label = "All device messaging from logs provider (com.sec.android.provider.logsprovider)"
     

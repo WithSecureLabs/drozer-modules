@@ -14,7 +14,7 @@ mercury> run post.read.sms -f otp
     date = "2013-04-23"
     license = "MWR Code License"
     path = ["post", "read"]
-    permissions = ["android.permission.READ_SMS"]
+    permissions = ["android.permission.READ_SMS", "com.mwr.dz.permissions.GET_CONTEXT"]
     
     def add_arguments(self, parser):
         parser.add_argument("-f", "--filter", default=None, help="filter results by a keyword")

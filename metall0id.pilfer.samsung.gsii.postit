@@ -9,6 +9,7 @@ class PostIt(Module, common.Provider, common.TableFormatter, common.Vulnerabilit
     date = "2012-11-06"
     license = "MWR Code License"
     path = ["exploit", "pilfer", "oem", "samsung"]
+    permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
 
     label = "Note entries from PostIt (com.sec.android.widgetapp.postit)"
     

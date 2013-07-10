@@ -9,6 +9,7 @@ class MiniDiary(Module, common.Provider, common.TableFormatter, common.Vulnerabi
     date = "2012-11-06"
     license = "MWR Code License"
     path = ["exploit", "pilfer", "oem", "samsung"]
+    permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
 
     label = "Note entries from MiniDiary (com.sec.android.app.minidiary)"
     

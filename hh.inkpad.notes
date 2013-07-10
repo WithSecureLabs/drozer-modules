@@ -9,6 +9,7 @@ class List(Module, common.TableFormatter, common.Provider):
     date = "2012-12-17"
     license = "MWR Code License"
     path = ["exploit", "pilfer", "thirdparty", "inkpad", "notes"]
+    permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
     
     __provider = "content://com.workpail.inkpad.provider.NotePad/notes"
     
@@ -30,6 +31,7 @@ class Note(Module, common.Provider, common.TableFormatter):
     date = "2012-12-17"
     license = "MWR Code License"
     path = ["exploit", "pilfer", "thirdparty", "inkpad", "notes"]
+    permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
     
     __provider = "content://com.workpail.inkpad.provider.NotePad/notes"
     
