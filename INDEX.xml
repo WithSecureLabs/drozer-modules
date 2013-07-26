@@ -2,11 +2,7 @@
     
 This exploit has been reported to work on the Acer Iconia, Motorola XYBoard and Motorola Xoom FE.</description></module><module name="metall0id.root.scanner_check"><description /></module><module name="metall0id.root.ztesyncagent"><description>Exploit the setuid-root binary at /system/bin/sync_agent on certain ZTE devices to gain a root shell. It is as simple as providing it with the argument "ztex1609523", which is the hard-coded password in the binary.
     
-This exploit has been reported to work on the ZTE Score M and the ZTE Skate.</description></module><module name="metall0id.root.exynosmem.exynosmem"><description>Escalate privileges to root on Samsung Galaxy S2, S3, Note 2 and other devices using Exynos processors and Samsung kernel sources.
-
-This module uses the vulnerability and exploit provided in http://forum.xda-developers.com/showthread.php?p=35469999
-
-The provided exploit makes use of the fact that /dev/exynos-mem is marked as globally RW and so can be exploited from the context of any application to obtain a root shell on the device.</description></module><module name="metall0id.post.microphone"><description>mercury&gt; run post.capture.microphone /home/user/Desktop/test.3gp
+This exploit has been reported to work on the ZTE Score M and the ZTE Skate.</description></module><module name="metall0id.root.exynosmem"><description /></module><module name="metall0id.post.microphone"><description>mercury&gt; run post.capture.microphone /home/user/Desktop/test.3gp
 [*] Performing crazy reflection gymnastics
 [*] Preparing recorder attributes
 [+] Recording started

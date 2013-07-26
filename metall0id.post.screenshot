@@ -32,14 +32,14 @@ Done.
             return
         
         # Take screenshot
-        self.shellExec("su -c \"screencap -p /data/data/com.mwr.droidhg.agent/screenshot.png\"")
-        self.shellExec("su -c \"chmod 666 /data/data/com.mwr.droidhg.agent/screenshot.png\"")
+        self.shellExec("su -c \"screencap -p /data/data/com.mwr.dz/screenshot.png\"")
+        self.shellExec("su -c \"chmod 666 /data/data/com.mwr.dz/screenshot.png\"")
         
         # Download
-        length = self.downloadFile("/data/data/com.mwr.droidhg.agent/screenshot.png", filename)
+        length = self.downloadFile("/data/data/com.mwr.dz/screenshot.png", filename)
         
         # Remove screenshot from device
-        self.shellExec("su -c \"rm /data/data/com.mwr.droidhg.agent/screenshot.png\"")
+        self.shellExec("su -c \"rm /data/data/com.mwr.dz/screenshot.png\"")
         
         if length != None:
             self.stdout.write("Done.\n")
