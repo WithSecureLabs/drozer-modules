@@ -10,7 +10,7 @@ make native-libraries
 
 git commit -am "updating generated library files"
 
-echo "Building the Mercury repository..."
+echo "Building the drozer repository..."
 drozer-repository ./tmp
 
 echo "Switching to the *repository* branch..."
