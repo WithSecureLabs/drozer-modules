@@ -14,7 +14,7 @@ This exploit has been reported to work on the Acer Iconia, Motorola XYBoard and 
     """
     author = ["sc2k (xdadevelopers)", "abliss (xdadevelopers)", "Dan Rosenburg (@djrbliss)", "Tyrone (@mwrlabs)"]
     date = "2013-01-09"
-    license = "MWR Code License"
+    license = "BSD (3 clause)"
     path = ["exploit", "root"]
     
     def isVulnerable(self, arguments):

@@ -7,7 +7,7 @@ class GPS(Module, common.Provider, common.TableFormatter):
     examples = ""
     author = "Anonymous"
     date = "2012-11-06"
-    license = "MWR Code License"
+    license = "BSD (3 clause)"
     path = ["exploit", "pilfer", "thirdparty", "shazam"]
     permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
     

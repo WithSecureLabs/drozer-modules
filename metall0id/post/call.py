@@ -11,7 +11,7 @@ mercury> run post.perform.call +27123456789
 """
     author = "Tyrone (@mwrlabs)"
     date = "2013-04-23"
-    license = "MWR Code License"
+    license = "BSD (3 clause)"
     path = ["post", "perform"]
     permissions = ["android.permission.CALL_PHONE", "com.mwr.dz.permissions.GET_CONTEXT"]
     

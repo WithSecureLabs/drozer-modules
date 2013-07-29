@@ -15,7 +15,7 @@ This exploit has been reported to work on the ZTE Score M and the ZTE Skate.
     """
     author = ["Anonymous (http://pastebin.com/wamYsqTV)", "Tyrone (@mwrlabs)"]
     date = "2012-12-17"
-    license = "MWR Code License"
+    license = "BSD (3 clause)"
     path = ["exploit", "root"]
     
     def isVulnerable(self, arguments):

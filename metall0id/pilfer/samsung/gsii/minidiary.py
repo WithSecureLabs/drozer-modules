@@ -7,7 +7,7 @@ class MiniDiary(Module, common.Provider, common.TableFormatter, common.Vulnerabi
     examples = ""
     author = "Tyrone (@mwrlabs)"
     date = "2012-11-06"
-    license = "MWR Code License"
+    license = "BSD (3 clause)"
     path = ["exploit", "pilfer", "oem", "samsung"]
     permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
 

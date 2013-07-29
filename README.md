@@ -1,32 +1,25 @@
-Mercury: the Heavy Metal that Poisoned the Droid
-================================================
+drozer Modules
+==============
 
-Mercury is a security assessment framework for the Android. It allows you to dynamically interact with the IPC endpoints exported by an application installed on a device.
+drozer (formerly Mercury) is the leading security testing framework for Android.
 
-Mercury is open source software, maintained by MWR InfoSecurity, and can be downloaded
-from:
+drozer allows you to search for security vulnerabilities in apps and devices by assuming the role of an app and interacting with the Dalvik VM, other apps' IPC endpoints and the underlying OS.
 
-    mwr.to/mercury
+drozer provides tools to help you use, share and understand public Android exploits. It helps you to deploy a drozer Agent to a device through exploitation or social engineering. Using weasel (MWR's advanced exploitation payload) drozer is able to maximise the permissions available to it by installing a full agent, injecting a limited agent into a running process, or connecting a reverse shell to act as a Remote Access Tool (RAT).
 
-Mercury provides similar functionality to a number of static analysis tools, such as aapt, but offers far more flexibility by allowing you to interact with these endpoints from the context of an unprivileged application running on the same device. The Android sandbox is designed to restrict the access of an unprivileged application to other applications, and the underlying device, without requesting appropriate permissions. You will be surprised how much access you actually have...
+drozer is open source software, maintained by MWR InfoSecurity, and can be downloaded from:
+
+    mwr.to/drozer
+
+This repository contains additional drozer modules, which can be installed through the module manager.
 
 
 Installing
 ----------
 
-See INSTALLING.
+To install modules from this repository, run:
 
+  drozer> module install keyword
 
-License
--------
-
-Mercury is released under the MWR Code License v2. See LICENSE for full details.
-
-
-This Repository
----------------
-
-This repository contains Mercury modules that can be installed through the module manager, added in Mercury v2.1.
-
-The files in this repository are not necessarily released under the MWR Code License. Please check the license of each module for more details.
+This will add additional modules to your session.
 

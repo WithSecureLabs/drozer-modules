@@ -7,7 +7,7 @@ class List(Module, common.TableFormatter, common.Provider):
     examples = ""
     author = "Henry Hoggard"
     date = "2012-12-17"
-    license = "MWR Code License"
+    license = "BSD (3 clause)"
     path = ["exploit", "pilfer", "thirdparty", "inkpad", "notes"]
     permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
     
@@ -29,7 +29,7 @@ class Note(Module, common.Provider, common.TableFormatter):
     examples = ""
     author = "Henry Hoggard"
     date = "2012-12-17"
-    license = "MWR Code License"
+    license = "BSD (3 clause)"
     path = ["exploit", "pilfer", "thirdparty", "inkpad", "notes"]
     permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
     

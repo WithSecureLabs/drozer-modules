@@ -25,7 +25,7 @@ The provided exploit makes use of the fact that /dev/exynos-mem is marked as glo
 
     author = ["alephzain (xdadevelopers)", "Tyrone (@mwrlabs)"]
     date = "2012-12-17"
-    license = "MWR Code License"
+    license = "BSD (3 clause)"
     path = ["exploit", "root"]
     
     def isVulnerable(self, arguments):

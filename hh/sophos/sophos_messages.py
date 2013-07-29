@@ -11,7 +11,7 @@ class Messages(Module, common.Provider, common.ClassLoader):
     examples = ""
     author = "Henry Hoggard"
     date = "2012-12-19"
-    license = "MWR Code License"
+    license = "BSD (3 clause)"
     path = ["exploit", "pilfer", "thirdparty", "sophos", "mobilecontrol"]
     permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
     

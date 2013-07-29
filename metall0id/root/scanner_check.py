@@ -7,7 +7,7 @@ class Check(Module, common.VulnerabilityScanner):
     examples = ""
     author = ["Tyrone (@mwrlabs)"]
     date = "2013-01-14"
-    license = "MWR Code License"
+    license = "BSD (3 clause)"
     path = ["scanner", "root"]
 
     vulnerabilities = "exploit.root."

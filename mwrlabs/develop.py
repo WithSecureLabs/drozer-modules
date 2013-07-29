@@ -9,11 +9,11 @@ class Interactive(Module, common.assets.Assets, common.busy_box.BusyBox,
                   common.zip_file.ZipFile, common.file_system.FileSystem, common.loader.ClassLoader):
     
     name = "Start an interactive Python shell"
-    description = """Start a Python shell, in the context of a Mercury module. """
+    description = """Start a Python shell, in the context of a drozer module. """
     examples = ""
     author = ["MWR InfoSecurity (@mwrlabs)"]
     date = "2012-12-21" # the end of the world
-    license = "MWR Code License"
+    license = "BSD (3-clause)"
     path = ["auxiliary", "develop"]
 
     def execute(self, arguments):

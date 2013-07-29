@@ -7,7 +7,7 @@ class OAuthTokens(Module, common.TableFormatter, common.Provider):
     examples = ""
     author = "Henry Hoggard"
     date = "2012-12-17"
-    license = "MWR Code License"
+    license = "BSD (3 clause)"
     path = ["exploit", "pilfer", "thirdparty", "seesmic", "twitter"]
     permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
     

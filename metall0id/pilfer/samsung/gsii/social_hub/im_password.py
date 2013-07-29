@@ -7,7 +7,7 @@ class IMPassword(Module, common.Provider, common.Vulnerability):
     examples = ""
     author = "Tyrone (@mwrlabs)"
     date = "2012-11-06"
-    license = "MWR Code License"
+    license = "BSD (3 clause)"
     path = ["exploit", "pilfer", "oem", "samsung", "social_hub"]
     permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
 
