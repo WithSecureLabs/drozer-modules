@@ -15,7 +15,7 @@ mercury> run post.capture.microphone /home/user/Desktop/test.3gp
 """
     author = "Tyrone (@mwrlabs)"
     date = "2013-04-22"
-    license = "MWR Code License"
+    license = "BSD (3 clause)"
     path = ["post", "capture"]
     permissions = ["android.permission.RECORD_AUDIO", "com.mwr.dz.permissions.GET_CONTEXT"]
     

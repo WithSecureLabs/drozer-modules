@@ -7,7 +7,7 @@ class Samsung(Module, common.VulnerabilityScanner):
     examples = ""
     author = ["Mike (@mwrlabs)", "Tyrone (@mwrlabs)"]
     date = "2012-11-06"
-    license = "MWR Code License"
+    license = "BSD (3 clause)"
     path = ["scanner", "oem"]
     permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
 

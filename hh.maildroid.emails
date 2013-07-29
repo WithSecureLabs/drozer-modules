@@ -8,7 +8,7 @@ class Emails(Module, common.FileSystem, common.ClassLoader):
     examples = ""
     author = "Henry Hoggard"
     date = "2012-12-17"
-    license = "MWR Code License"
+    license = "BSD (3 clause)"
     path = ["exploit", "pilfer", "thirdparty", "maildroid"]
     
     __database = "/sdcard/com.maildroid/index/index-1.db"

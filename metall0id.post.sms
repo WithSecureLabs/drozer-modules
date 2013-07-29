@@ -12,7 +12,7 @@ mercury> run post.sms.read -f otp
 """
     author = "Tyrone (@mwrlabs)"
     date = "2013-04-23"
-    license = "MWR Code License"
+    license = "BSD (3 clause)"
     path = ["post", "sms"]
     permissions = ["android.permission.READ_SMS", "com.mwr.dz.permissions.GET_CONTEXT"]
     
