@@ -13,7 +13,9 @@ This exploit has been reported to work on the Acer Iconia, Motorola XYBoard and 
 | body                             | date_sent     | address      | person |
 | Fakey Bank. Payment OTP 1d5gv578 | 1366708779000 | +27731356743 | null   |
 | Fakey Bank. Payment OTP a4g6h8jk | 1366708795000 | +27731356743 | null   |</description></module><module name="metall0id.post.screenshot"><description>mercury&gt; run post.capture.screenshot
-Done.</description></module><module name="mwrlabs.secure_random"><description>Finds applications that make use of java.security.SecureRandom as a source of random numbers.
+Done.</description></module><module name="mwrlabs.urls"><description>Finds URLs with the HTTP or HTTPS schemes by searching the strings inside APK files.
+
+    You can, for instance, use this for finding API servers, C&amp;C servers within malicious APKs and checking for presence of advertising networks.</description></module><module name="mwrlabs.secure_random"><description>Finds applications that make use of java.security.SecureRandom as a source of random numbers.
 
     It was identified that on some versions of Android the SecureRandom random number generator did not correctly seed the underlying PRNG, which could cause predictable sequences of numbers to be generated.
 
