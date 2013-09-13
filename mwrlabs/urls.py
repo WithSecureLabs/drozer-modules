@@ -1,3 +1,5 @@
+import re
+
 from pydiesel.reflection import ReflectionException
 
 from drozer.modules import common, Module
@@ -19,8 +21,11 @@ class WebURLs(Module, common.FileSystem, common.PackageManager, common.Provider,
 
     def add_arguments(self, parser):
         parser.add_argument("-a", "--package", help="specify a package to search")
+        parser.add_argument("-p", "--http", action="store_true", default=False, help="only display http urls")
+        parser.add_argument("-s", "--https", action="store_true", default=False, help="only display https urls")
 
     def execute(self, arguments):
+        self.url_matcher = re.compile("(http(s)?:\/\/.+)")
         if arguments.package != None:
             self.check_package(arguments.package, arguments)
         else:
@@ -53,19 +58,24 @@ class WebURLs(Module, common.FileSystem, common.PackageManager, common.Provider,
 
 
             for s in strings:
-                if "http://" in s:
-                    http_urls.append(s)
-                elif "https://" in s:
-                    https_urls.append(s)
+                m = self.url_matcher.search(s)
+                if m is not None:
+                    if m.group(2) == "s":
+                        https_urls.append(m.group(1))
+                    elif m.group(2) == None:
+                        http_urls.append(m.group(1))
 
-            if len(http_urls) > 0 or len(https_urls) > 0:
+            if (len(http_urls) > 0 and not arguments.https) or (len(https_urls) > 0 and not arguments.http):
                 self.stdout.write("%s\n" % str(package))
 
-            for http_url in http_urls:
-                self.stdout.write("  %s\n" % http_url)
-            for https_url in https_urls:
-                self.stdout.write("  %s\n" % https_url)
+            if not arguments.https:
+                for http_url in http_urls:
+                    self.stdout.write("  %s\n" % http_url)
 
-            if len(http_urls) > 0 or len(https_urls) > 0:
+            if not arguments.http:
+                for https_url in https_urls:
+                    self.stdout.write("  %s\n" % https_url)
+
+            if (len(http_urls) > 0 and not arguments.https) or (len(https_urls) > 0 and not arguments.http):
                 self.stdout.write("\n")
 
