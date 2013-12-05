@@ -25,7 +25,7 @@ class WebURLs(Module, common.FileSystem, common.PackageManager, common.Provider,
         parser.add_argument("-s", "--https", action="store_true", default=False, help="only display https urls")
 
     def execute(self, arguments):
-        self.url_matcher = re.compile("(http(s)?:\/\/.+)")
+        self.url_matcher = re.compile("http(s)?://[^\s\"']+")
         if arguments.package != None:
             self.check_package(arguments.package, arguments)
         else:
@@ -60,10 +60,10 @@ class WebURLs(Module, common.FileSystem, common.PackageManager, common.Provider,
             for s in strings:
                 m = self.url_matcher.search(s)
                 if m is not None:
-                    if m.group(2) == "s":
-                        https_urls.append(m.group(1))
-                    elif m.group(2) == None:
-                        http_urls.append(m.group(1))
+                    if m.group(1) == "s":
+                        https_urls.append(m.group(0))
+                    elif m.group(1) == None:
+                        http_urls.append(m.group(0))
 
             if (len(http_urls) > 0 and not arguments.https) or (len(https_urls) > 0 and not arguments.http):
                 self.stdout.write("%s\n" % str(package))
