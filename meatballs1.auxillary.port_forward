@@ -12,7 +12,7 @@ class PortForward(Module, common.ClassLoader):
     author = "Ben Campbell"
     date = "2013-11-19"
     license = "BSD (3 clause)"
-    path = ["auxiliary"]
+    path = ["post", "pivot"]
 
     def add_arguments(self, parser):
         parser.add_argument("-rh", "--remote-host", required=True, help="the remote host to connect to")
