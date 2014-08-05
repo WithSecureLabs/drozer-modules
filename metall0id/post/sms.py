@@ -5,7 +5,7 @@ class Read(Module, common.Provider, common.TableFormatter, common.FileSystem, co
     name = "Read all SMS messages"
     description = "Read all SMS messages from content://sms or filter by keywords or cellphone numbers. Relies on the agent having the READ_SMS permission."
     examples = """
-mercury> run post.sms.read -f otp
+dz> run post.sms.read -f otp
 | body                             | date_sent     | address      | person |
 | Fakey Bank. Payment OTP 1d5gv578 | 1366708779000 | +27731356743 | null   |
 | Fakey Bank. Payment OTP a4g6h8jk | 1366708795000 | +27731356743 | null   | 
@@ -44,7 +44,7 @@ class Send(Module):
     name = "Send an SMS messages"
     description = "Send an SMS message to another cellphone. Relies on the agent having the SEND_SMS permission."
     examples = """
-mercury> run post.sms.send 555-12345 "Hello World!" 
+dz> run post.sms.send 555-12345 "Hello World!" 
 """
     author = "MWR InfoSecurity (@mwrlabs)"
     date = "2013-07-19"

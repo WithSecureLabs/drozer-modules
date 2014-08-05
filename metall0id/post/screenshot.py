@@ -8,7 +8,7 @@ class Screenshot(Module, common.SuperUser, common.Shell, common.FileSystem, comm
 
     name = "Take a screenshot of the device"
     description = "Take a screenshot of the device. Relies on minimal-su being correcly installed on the device (see tools.setup.minimalsu)"
-    examples = """mercury> run post.capture.screenshot
+    examples = """dz> run post.capture.screenshot
 Done.
 """
     author = "Tyrone (@mwrlabs)"
