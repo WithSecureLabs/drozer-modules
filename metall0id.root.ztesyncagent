@@ -8,7 +8,7 @@ class ZTESyncAgent(Module, common.Vulnerability, common.Shell, common.FileSystem
 This exploit has been reported to work on the ZTE Score M and the ZTE Skate.
 """
     examples = """
-    mercury> run exploit.root.ztesyncagent
+    dz> run exploit.root.ztesyncagent
     # id
     uid=0(root) gid=0(root)
     # 

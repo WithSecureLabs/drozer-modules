@@ -1,32 +1,67 @@
-<repository><module name="anon.shazam.gps"><description /></module><module name="meatballs1.auxillary.port_forward"><description>dz&gt; run auxiliary.portforward -rh 192.168.5.1 -rp 5555 -lp 4444
-    Tunneling :4444 -&gt; 192.168.5.1:5555
-    dz&gt; Established tunnel to 192.168.5.1:5555</description></module><module name="metall0id.pilfer.samsung.gsii.scanner"><description /></module><module name="metall0id.pilfer.samsung.gsii.postit"><description /></module><module name="metall0id.pilfer.samsung.gsii.accuweather"><description /></module><module name="metall0id.pilfer.samsung.gsii.memo"><description /></module><module name="metall0id.pilfer.samsung.gsii.ap_password"><description /></module><module name="metall0id.pilfer.samsung.gsii.channels_sms"><description /></module><module name="metall0id.pilfer.samsung.gsii.im"><description /></module><module name="metall0id.pilfer.samsung.gsii.minidiary"><description /></module><module name="metall0id.pilfer.samsung.gsii.logs.messaging"><description /></module><module name="metall0id.pilfer.samsung.gsii.logs.im"><description /></module><module name="metall0id.pilfer.samsung.gsii.logs.email"><description /></module><module name="metall0id.pilfer.samsung.gsii.social_hub.messages"><description /></module><module name="metall0id.pilfer.samsung.gsii.social_hub.im_password"><description /></module><module name="metall0id.pilfer.samsung.gsii.social_hub.accounts"><description /></module><module name="metall0id.pilfer.samsung.gsii.social_hub.im"><description /></module><module name="metall0id.pilfer.samsung.gsii.social_hub.email"><description /></module><module name="metall0id.post.microphone"><description>mercury&gt; run post.capture.microphone /home/user/Desktop/test.3gp
+<repository><module name="curesec.CVE-2013-6271"><description>This plugin abuses a bug which allows a malicious app/user to use the com.android.phone without the necessary permissions.
+	
+	CVE-2013-6271
+
+	http://www.curesec.com
+	by Curesec Research Team security@curesec.com
+
+	Tested to be VULN:
+	4.0
+	4.1
+	4.2
+	4.3
+
+	Tested NOT VULN:
+	4.4</description></module><module name="curesec.CVE-2014-NA"><description>Bug in ContactsListActivity is abused to conduct phone calls or send special codes
+
+    CVE-2014-N/A
+
+    http://www.curesec.com
+    by Curesec Research Team security@curesec.com</description></module><module name="curesec.CVE-2013-6272"><description>This plugin abuses a bug which allows a malicious app/user to use the com.android.phone without the necessary permissions.
+
+    CVE-2013-6272
+
+    http://www.curesec.com
+    by Curesec Research Team security@curesec.com
+
+    Tested to be VULN:
+    4.2.2
+    4.3
+    4.4.2
+
+    Tested NOT VULN:
+    4.0.3
+    4.1.1
+    4.1.2</description></module><module name="metall0id.root.ztesyncagent"><description>Exploit the setuid-root binary at /system/bin/sync_agent on certain ZTE devices to gain a root shell. It is as simple as providing it with the argument "ztex1609523", which is the hard-coded password in the binary.
+    
+This exploit has been reported to work on the ZTE Score M and the ZTE Skate.</description></module><module name="metall0id.root.scanner_check"><description /></module><module name="metall0id.root.cmdclient"><description>Exploit the setuid-root binary at /system/bin/cmdclient on certain devices to gain a root shell. Command injection vulnerabilities exist in the parsing mechanisms of the various input arguments.
+    
+This exploit has been reported to work on the Acer Iconia, Motorola XYBoard and Motorola Xoom FE.</description></module><module name="metall0id.root.exynosmem"><description /></module><module name="metall0id.root.mmap"><description /></module><module name="metall0id.tools.setup.nmap"><description>Installs Nmap on the Agent.
+
+Nmap ("Network Mapper") is a free and open source (license) utility for network discovery and security auditing.</description></module><module name="metall0id.pilfer.samsung.gsii.memo"><description /></module><module name="metall0id.pilfer.samsung.gsii.postit"><description /></module><module name="metall0id.pilfer.samsung.gsii.scanner"><description /></module><module name="metall0id.pilfer.samsung.gsii.im"><description /></module><module name="metall0id.pilfer.samsung.gsii.accuweather"><description /></module><module name="metall0id.pilfer.samsung.gsii.minidiary"><description /></module><module name="metall0id.pilfer.samsung.gsii.ap_password"><description /></module><module name="metall0id.pilfer.samsung.gsii.channels_sms"><description /></module><module name="metall0id.pilfer.samsung.gsii.logs.messaging"><description /></module><module name="metall0id.pilfer.samsung.gsii.logs.im"><description /></module><module name="metall0id.pilfer.samsung.gsii.logs.email"><description /></module><module name="metall0id.pilfer.samsung.gsii.social_hub.im_password"><description /></module><module name="metall0id.pilfer.samsung.gsii.social_hub.accounts"><description /></module><module name="metall0id.pilfer.samsung.gsii.social_hub.im"><description /></module><module name="metall0id.pilfer.samsung.gsii.social_hub.messages"><description /></module><module name="metall0id.pilfer.samsung.gsii.social_hub.email"><description /></module><module name="metall0id.post.microphone"><description>dz&gt; run post.capture.microphone /home/user/Desktop/test.3gp
 [*] Performing crazy reflection gymnastics
 [*] Preparing recorder attributes
 [+] Recording started
 [+] Press [Enter] to stop recording
 [+] Stopped...downloading recording
-[+] Done.</description></module><module name="metall0id.post.call"><description>mercury&gt; run post.perform.call +27123456789
-[*] Sent intent to call +27123456789</description></module><module name="metall0id.post.sms"><description>mercury&gt; run post.sms.read -f otp
+[+] Done.</description></module><module name="metall0id.post.call"><description>dz&gt; run post.perform.call +27123456789
+[*] Sent intent to call +27123456789</description></module><module name="metall0id.post.clipboard"><description>dz&gt; run post.capture.clipboard
+[*] Clipboard value: test123</description></module><module name="metall0id.post.sms"><description>dz&gt; run post.sms.read -f otp
 | body                             | date_sent     | address      | person |
 | Fakey Bank. Payment OTP 1d5gv578 | 1366708779000 | +27731356743 | null   |
-| Fakey Bank. Payment OTP a4g6h8jk | 1366708795000 | +27731356743 | null   |</description></module><module name="metall0id.post.screenshot"><description>mercury&gt; run post.capture.screenshot
-Done.</description></module><module name="metall0id.post.start_installed_drozer"><description /></module><module name="metall0id.tools.setup.nmap"><description>Installs Nmap on the Agent.
+| Fakey Bank. Payment OTP a4g6h8jk | 1366708795000 | +27731356743 | null   |</description></module><module name="metall0id.post.screenshot"><description>dz&gt; run post.capture.screenshot
+Done.</description></module><module name="metall0id.post.start_installed_drozer"><description /></module><module name="mwrlabs.virustotal"><description /></module><module name="mwrlabs.urls"><description>Finds URLs with the HTTP or HTTPS schemes by searching the strings inside APK files.
 
-Nmap ("Network Mapper") is a free and open source (license) utility for network discovery and security auditing.</description></module><module name="metall0id.root.cmdclient"><description>Exploit the setuid-root binary at /system/bin/cmdclient on certain devices to gain a root shell. Command injection vulnerabilities exist in the parsing mechanisms of the various input arguments.
-    
-This exploit has been reported to work on the Acer Iconia, Motorola XYBoard and Motorola Xoom FE.</description></module><module name="metall0id.root.scanner_check"><description /></module><module name="metall0id.root.ztesyncagent"><description>Exploit the setuid-root binary at /system/bin/sync_agent on certain ZTE devices to gain a root shell. It is as simple as providing it with the argument "ztex1609523", which is the hard-coded password in the binary.
-    
-This exploit has been reported to work on the ZTE Score M and the ZTE Skate.</description></module><module name="metall0id.root.exynosmem"><description /></module><module name="metall0id.root.mmap"><description /></module><module name="mwrlabs.develop"><description>Start a Python shell, in the context of a drozer module.</description></module><module name="mwrlabs.secure_random"><description>Finds applications that make use of java.security.SecureRandom as a source of random numbers.
+    You can, for instance, use this for finding API servers, C&amp;C servers within malicious APKs and checking for presence of advertising networks.</description></module><module name="mwrlabs.secure_random"><description>Finds applications that make use of java.security.SecureRandom as a source of random numbers.
 
     It was identified that on some versions of Android the SecureRandom random number generator did not correctly seed the underlying PRNG, which could cause predictable sequences of numbers to be generated.
 
-    See: http://android-developers.blogspot.co.uk/2013/08/some-securerandom-thoughts.html</description></module><module name="mwrlabs.virustotal"><description /></module><module name="mwrlabs.urls"><description>Finds URLs with the HTTP or HTTPS schemes by searching the strings inside APK files.
-
-    You can, for instance, use this for finding API servers, C&amp;C servers within malicious APKs and checking for presence of advertising networks.</description></module><module name="hh.seesmic.twitter.oauth_tokens"><description>Extracts the Twitter Secret from Seesmic (com.seesmic), exposed through a leaky content provider.</description></module><module name="hh.sophos.sophos_messages"><description>Extracts the Messages database from Sophos Mobile Control (com.sophos.mobilecontrol.client.android), using a directory traversal vulnerability.</description></module><module name="hh.idea.superbackup.contacts"><description>Grabs Contact details backed up to the SD card by 'Super Backup : SMS &amp; Contacts' (com.idea.backup.smscontacts).</description></module><module name="hh.idea.superbackup.smses"><description>Grabs SMS messages backed up to the SD card by 'Super Backup : SMS &amp; Contacts' (com.idea.backup.smscontacts).</description></module><module name="hh.idea.superbackup.calls"><description>Grabs call logs backed up to the SD card by 'Super Backup : SMS &amp; Contacts' (com.idea.backup.smscontacts).</description></module><module name="hh.inkpad.notes"><description>Lists notes created with the InkPad application (com.workpail.inkpad.notepad.notes), and are exposed through a leaky content provider.</description></module><module name="hh.maildroid.emails"><description>Grabs Email Messages stored on the SD card by 'MailDroid' (com.maildroid).</description></module><module name="jubax.javascript"><description>Finds applications that make use of android.webkit.WebView.addJavascriptInterface or org.chromium.content.browser.addPossiblyUnsafeJavascriptInterface.
+    See: http://android-developers.blogspot.co.uk/2013/08/some-securerandom-thoughts.html</description></module><module name="mwrlabs.develop"><description>Start a Python shell, in the context of a drozer module.</description></module><module name="hh.maildroid.emails"><description>Grabs Email Messages stored on the SD card by 'MailDroid' (com.maildroid).</description></module><module name="hh.seesmic.twitter.oauth_tokens"><description>Extracts the Twitter Secret from Seesmic (com.seesmic), exposed through a leaky content provider.</description></module><module name="hh.idea.superbackup.smses"><description>Grabs SMS messages backed up to the SD card by 'Super Backup : SMS &amp; Contacts' (com.idea.backup.smscontacts).</description></module><module name="hh.idea.superbackup.contacts"><description>Grabs Contact details backed up to the SD card by 'Super Backup : SMS &amp; Contacts' (com.idea.backup.smscontacts).</description></module><module name="hh.idea.superbackup.calls"><description>Grabs call logs backed up to the SD card by 'Super Backup : SMS &amp; Contacts' (com.idea.backup.smscontacts).</description></module><module name="hh.sophos.sophos_messages"><description>Extracts the Messages database from Sophos Mobile Control (com.sophos.mobilecontrol.client.android), using a directory traversal vulnerability.</description></module><module name="hh.inkpad.notes"><description>Lists notes created with the InkPad application (com.workpail.inkpad.notepad.notes), and are exposed through a leaky content provider.</description></module><module name="anon.shazam.gps"><description /></module><module name="jubax.javascript"><description>Finds applications that make use of android.webkit.WebView.addJavascriptInterface or org.chromium.content.browser.addPossiblyUnsafeJavascriptInterface.
 
 It was identified that using addJavascriptInterface with target sdk &lt; 17 is problematic.
 There is also a new API, addPossiblyUnsafeJavascriptInterface, introduced in 4.4.2,
 which is target independent.
 
-See: http://blog.k3170makan.com/2014/03/about-addjavascriptinterface-abuse-in.html</description></module></repository>
+See: http://blog.k3170makan.com/2014/03/about-addjavascriptinterface-abuse-in.html</description></module><module name="meatballs1.auxillary.port_forward"><description>dz&gt; run auxiliary.portforward -rh 192.168.5.1 -rp 5555 -lp 4444
+    Tunneling :4444 -&gt; 192.168.5.1:5555
+    dz&gt; Established tunnel to 192.168.5.1:5555</description></module></repository>

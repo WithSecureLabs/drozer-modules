@@ -5,7 +5,7 @@ class Microphone(Module, common.Shell, common.FileSystem, common.ClassLoader):
     name = "Record sound from the microphone"
     description = "Record sound from the microphone and store it in a 3GP sound file. Relies on the agent having the RECORD_AUDIO permission."
     examples = """
-mercury> run post.capture.microphone /home/user/Desktop/test.3gp
+dz> run post.capture.microphone /home/user/Desktop/test.3gp
 [*] Performing crazy reflection gymnastics
 [*] Preparing recorder attributes
 [+] Recording started

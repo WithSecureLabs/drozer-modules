@@ -6,7 +6,7 @@ class Call(Module, common.FileSystem, common.ClassLoader):
     name = "Call a phone number"
     description = "Call a phone number. Relies on the agent having the CALL_PHONE permission."
     examples = """
-mercury> run post.perform.call +27123456789
+dz> run post.perform.call +27123456789
 [*] Sent intent to call +27123456789
 """
     author = "Tyrone (@mwrlabs)"

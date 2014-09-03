@@ -8,7 +8,7 @@ class CmdClient(Module, common.Vulnerability, common.Shell, common.FileSystem, c
 This exploit has been reported to work on the Acer Iconia, Motorola XYBoard and Motorola Xoom FE.
 """
     examples = """
-    mercury> run exploit.root.cmdclient
+    dz> run exploit.root.cmdclient
     # id
     uid=0(root) gid=0(root)
     """
