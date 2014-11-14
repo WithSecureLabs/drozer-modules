@@ -24,12 +24,6 @@ dz> run post.capture.microphone /home/user/Desktop/test.3gp
 
     def execute(self, arguments):
         
-        # Check that the agent has the RECORD_AUDIO permission
-        packageManager = self.getContext().getPackageManager()
-        if not packageManager.checkPermission("android.permission.RECORD_AUDIO", self.getContext().getPackageName()) == packageManager.PERMISSION_GRANTED:
-            self.stdout.write("[-] This agent does not have the RECORD_AUDIO permission. Exiting...\n")
-            return
-        
         # Check that destination ends in 3gp
         if not arguments.destination.upper().endswith(".3GP"):
             self.stdout.write("[-] Destination file must have a .3gp extension. Exiting...\n")

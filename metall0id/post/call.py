@@ -19,12 +19,6 @@ dz> run post.perform.call +27123456789
         parser.add_argument("number", help="number to call e.g. +27123456789")
 
     def execute(self, arguments):
-        
-        # Check that the agent has the CALL_PHONE permission
-        packageManager = self.getContext().getPackageManager()
-        if not packageManager.checkPermission("android.permission.CALL_PHONE", self.getContext().getPackageName()) == packageManager.PERMISSION_GRANTED:
-            self.stdout.write("[-] This agent does not have the CALL_PHONE permission. Exiting...\n")
-            return
             
         # Initiate the phone call
         intent = android.Intent(action="android.intent.action.CALL", data_uri="tel:" + arguments.number, flags=["ACTIVITY_NEW_TASK"])
