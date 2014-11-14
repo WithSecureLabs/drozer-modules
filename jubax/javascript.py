@@ -25,7 +25,7 @@ dz> run scanner.misc.checkjavascriptbridge -v -a com.android.chrome
     date = "2014-03-25"
     license = "BSD (3-clause)"
     path = ["scanner", "misc"]
-
+    permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
 
     # vulnerable functions we search for
     #test 1
