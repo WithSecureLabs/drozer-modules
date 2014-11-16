@@ -14,6 +14,9 @@ Done. Saved at /home/user/1416002550.png
     license = "BSD (3 clause)"
     path = ["post", "capture"]
 
+    def add_arguments(self, parser):
+        parser.add_argument("--override-checks", action="store_true", default=False, help="ignore checks and use this module")
+
     def execute(self, arguments):
 
         # Check for screencap binary
@@ -35,8 +38,10 @@ Done. Saved at /home/user/1416002550.png
 
         # Check for existence of minimal-su
         if not self.isMinimalSuInstalled() and not privilegedUser:
-            self.stdout.write("[x] You are not a privileged user and no su binary available (see tools.setup.minimalsu). Exiting...\n")
-            return
+            self.stdout.write("[-] You are not a privileged user and no minimal su binary available (see tools.setup.minimalsu).\n")
+            if not arguments.override_checks:
+                return
+            self.stdout.write("[*] Continuing...\n")
             
         # Make timestamped file name
         filename = str(int(time.time())) + ".png"
@@ -61,7 +66,7 @@ Done. Saved at /home/user/1416002550.png
         fullPath = os.path.join(os.getcwd(), filename)
         
         if length != None:
-            self.stdout.write("Done. Saved at %s \n" % fullPath)
+            self.stdout.write("[+] Done. Saved at %s \n" % fullPath)
             
             # Open in default application
             if os.name == 'posix':
@@ -71,4 +76,4 @@ Done. Saved at /home/user/1416002550.png
             elif os.name == 'darwin':
                 os.system("open " + filename);
         else:
-            self.stderr.write("Screenshot download failed.\n")
+            self.stderr.write("[-] Screenshot download failed.\n")
