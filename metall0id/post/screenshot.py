@@ -1,10 +1,8 @@
-import os
-import subprocess
-import time
+import os, subprocess, time
 
 from drozer.modules import common, Module
 
-class Screenshot(Module, common.SuperUser, common.Shell, common.FileSystem, common.ClassLoader):
+class Screenshot(Module, common.BusyBox, common.SuperUser, common.Shell, common.FileSystem, common.ClassLoader):
 
     name = "Take a screenshot of the device"
     description = "Take a screenshot of the device. Relies on minimal-su being correcly installed on the device (see tools.setup.minimalsu)"
@@ -17,29 +15,47 @@ Done. Saved at /home/user/1416002550.png
     path = ["post", "capture"]
 
     def execute(self, arguments):
-        
+
+        # Check for screencap binary
+        if not self.exists("/system/bin/screencap"):
+            self.stdout.write("[x] No known methods for taking screenshots on this device. Exiting...\n")
+            return
+
+        # Check if busybox installed
+        if not self.isBusyBoxInstalled():
+            self.stderr.write("This command requires BusyBox to complete. Run tools.setup.busybox and then retry.\n")
+            return
+
+        # Check if running as privileged user
+        userId = self.busyBoxExec("id -u")
+        if ("1000" == userId) or ("2000" == userId) or ("0" == userId):
+            privilegedUser = True
+        else:
+            privilegedUser = False 
+
         # Check for existence of minimal-su
-        if not self.isMinimalSuInstalled():
-            self.stdout.write("[x] No su binary available (see tools.setup.minimalsu). Exiting...\n")
+        if not self.isMinimalSuInstalled() and not privilegedUser:
+            self.stdout.write("[x] You are not a privileged user and no su binary available (see tools.setup.minimalsu). Exiting...\n")
             return
             
         # Make timestamped file name
         filename = str(int(time.time())) + ".png"
         
-        # Check for screencap binary
-        if not self.exists("/system/bin/screencap"):
-            self.stdout.write("[x] No known methods for taking screenshots on this device. Exiting...\n")
-            return
-        
         # Take screenshot
-        self.shellExec("su -c \"screencap -p %s/screenshot.png\"" % self.workingDir())
-        self.shellExec("su -c \"chmod 666 %s/screenshot.png\"" % self.workingDir())
+        screencapCmd = "screencap -p %s/screenshot.png" % self.workingDir()
+        chmodCmd = "chmod 666 %s/screenshot.png" % self.workingDir()
+        if privilegedUser:
+            self.shellExec(screencapCmd)
+            self.shellExec(chmodCmd)
+        else:
+            self.suExec(screencapCmd)
+            self.suExec(chmodCmd)
         
         # Download
         length = self.downloadFile("%s/screenshot.png" % self.workingDir(), filename)
         
         # Remove screenshot from device
-        self.shellExec("su -c \"rm %s/screenshot.png\"" % self.workingDir())
+        self.shellExec("rm %s/screenshot.png" % self.workingDir())
 
         # Full path to file
         fullPath = os.path.join(os.getcwd(), filename)
