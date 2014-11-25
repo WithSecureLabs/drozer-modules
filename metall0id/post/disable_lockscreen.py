@@ -22,8 +22,8 @@ class DisableLockScreen(Module, common.ClassLoader):
     
     def execute(self, arguments):
         con = self.getContext()
-        cls = self.loadClass("LockScreen.apk", "LockScreen", relative_to=__file__)
-        kgl = self.new(cls, con)
+        kgl = con.getSystemService("keyguard")
+
         self.stdout.write("[*] Attempting to disableKeyguard()\n")
-        kgl.disable()
+        kgl.newKeyguardLock("dz").disableKeyguard()
         self.stdout.write("[*] Done. Check device.\n")
