@@ -2,26 +2,27 @@ import os, subprocess, time
 
 from drozer.modules import common, Module
 
-class Screenshot(Module, common.BusyBox, common.SuperUser, common.Shell, common.FileSystem, common.ClassLoader):
+class ScreenRecording(Module, common.BusyBox, common.SuperUser, common.Shell, common.FileSystem, common.ClassLoader):
 
-    name = "Take a screenshot of the device"
-    description = "Take a screenshot of the device. Relies on minimal-su being correcly installed on the device (see tools.setup.minimalsu)"
-    examples = """dz> run post.capture.screenshot
-Done. Saved at /home/user/1416002550.png
+    name = "Take a video recording of the device's screen"
+    description = "Take a video recording of the device's screen. Relies on minimal-su being correcly installed on the device (see tools.setup.minimalsu)"
+    examples = """dz> run post.capture.screenrecording
+Done. Saved at /home/user/1416002550.mp4
 """
     author = "Tyrone (@mwrlabs)"
-    date = "2013-04-18"
+    date = "2014-11-15"
     license = "BSD (3 clause)"
     path = ["post", "capture"]
 
     def add_arguments(self, parser):
+        parser.add_argument("-l", "--length", default=10, help="length of the recording (in seconds)")
         parser.add_argument("--override-checks", action="store_true", default=False, help="ignore checks and use this module")
 
     def execute(self, arguments):
 
-        # Check for screencap binary
-        if not self.exists("/system/bin/screencap"):
-            self.stdout.write("[x] No known methods for taking screenshots on this device. Exiting...\n")
+        # Check for screenrecord binary
+        if not self.exists("/system/bin/screenrecord"):
+            self.stdout.write("[x] No known methods for recording screen on this device. Exiting...\n")
             return
 
         # Check if busybox installed
@@ -44,23 +45,23 @@ Done. Saved at /home/user/1416002550.png
             self.stdout.write("[*] Continuing...\n")
             
         # Make timestamped file name
-        filename = str(int(time.time())) + ".png"
+        filename = str(int(time.time())) + ".mp4"
         
-        # Take screenshot
-        screencapCmd = "screencap -p %s/screenshot.png" % self.workingDir()
-        chmodCmd = "chmod 666 %s/screenshot.png" % self.workingDir()
+        # Record screen
+        screenrecordCmd = "screenrecord --bit-rate 100000 --time-limit %s %s/recording.mp4" % (arguments.length, self.workingDir())
+        chmodCmd = "chmod 666 %s/recording.mp4" % self.workingDir()
         if privilegedUser:
-            self.shellExec(screencapCmd)
+            self.shellExec(screenrecordCmd)
             self.shellExec(chmodCmd)
         else:
-            self.suExec(screencapCmd)
+            self.suExec(screenrecordCmd)
             self.suExec(chmodCmd)
         
         # Download
-        length = self.downloadFile("%s/screenshot.png" % self.workingDir(), filename)
+        length = self.downloadFile("%s/recording.mp4" % self.workingDir(), filename)
         
-        # Remove screenshot from device
-        self.shellExec("rm %s/screenshot.png" % self.workingDir())
+        # Remove recording from device
+        self.shellExec("rm %s/recording.mp4" % self.workingDir())
 
         # Full path to file
         fullPath = os.path.join(os.getcwd(), filename)
@@ -76,4 +77,4 @@ Done. Saved at /home/user/1416002550.png
             elif os.name == 'darwin':
                 os.system("open " + filename);
         else:
-            self.stderr.write("[-] Screenshot download failed.\n")
+            self.stderr.write("[-] Screen recording download failed.\n")

