@@ -22,6 +22,11 @@ Nmap ("Network Mapper") is a free and open source (license) utility for network 
             if "Y" not in response.upper():
                 return
 
+        # Android 5.0 >= check
+        if self.klass("android.os.Build$VERSION").SDK_INT >= 21:
+            self.stdout.write("[-] This module is not supported on Android 5.0 and above yet. This is due to the enforcement of PIE binaries and will be updated in future versions of drozer.\n")
+            return
+
         folder = self.workingDir() + "/bin/"
         localZip = os.path.join(os.path.dirname(__file__), "nmap-5.51-1.zip")
         remoteZip = folder + "nmap-5.51-1.zip"
