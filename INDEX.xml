@@ -54,11 +54,11 @@ Done. Saved at /home/user/1416002550.png</description></module><module name="met
 [+] Recording started
 [+] Press [Enter] to stop recording
 [+] Stopped...downloading recording
-[+] Done.</description></module><module name="metall0id.post.disable_lockscreen"><description>This attack uses the DISABLE_KEYGUARD permission to disable the lock screen. KeyguardManager.KeyguardLock was supposedly deprecated in API 13 but disableKeyguard() still works on Android 4.4.2
+[+] Done.</description></module><module name="metall0id.post.screenrecord"><description>dz&gt; run post.capture.screenrecording
+Done. Saved at /home/user/1416002550.mp4</description></module><module name="metall0id.post.start_installed_drozer"><description /></module><module name="metall0id.post.disablelockscreen"><description>This attack uses the DISABLE_KEYGUARD permission to disable the lock screen. KeyguardManager.KeyguardLock was supposedly deprecated in API 13 but disableKeyguard() still works on Android 4.4.2
 
     Vulnerable:
-      * Android - all versions</description></module><module name="metall0id.post.screenrecord"><description>dz&gt; run post.capture.screenrecording
-Done. Saved at /home/user/1416002550.mp4</description></module><module name="metall0id.post.start_installed_drozer"><description /></module><module name="metall0id.post.location"><description /></module><module name="metall0id.tools.setup.nmap"><description>Installs Nmap on the Agent.
+      * Android - all versions</description></module><module name="metall0id.post.location"><description /></module><module name="metall0id.tools.setup.nmap"><description>Installs Nmap on the Agent.
 
 Nmap ("Network Mapper") is a free and open source (license) utility for network discovery and security auditing.</description></module><module name="metall0id.root.scanner_check"><description /></module><module name="metall0id.root.ztesyncagent"><description>Exploit the setuid-root binary at /system/bin/sync_agent on certain ZTE devices to gain a root shell. It is as simple as providing it with the argument "ztex1609523", which is the hard-coded password in the binary.
     
