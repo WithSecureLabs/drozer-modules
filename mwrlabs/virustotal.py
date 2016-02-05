@@ -9,7 +9,7 @@ class VirusTotal(Module, common.PackageManager, common.ClassLoader, common.FileS
     name = "Virus Scanner"
     description = "Extends Drozer's malware analysis capability to check applications on the device agains the VirusTotal malware dataset"
     examples = ""
-    author = "MWRLabs"
+    author = "@HenryHoggard (@mwrlabs)"
     date = "2013-10-30"
     license = "BSD (3-clause)"
     path = ["scanner", "malware"]

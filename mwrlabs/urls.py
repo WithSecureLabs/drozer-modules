@@ -13,7 +13,7 @@ class WebURLs(Module, common.FileSystem, common.PackageManager, common.Provider,
     You can, for instance, use this for finding API servers, C&C servers within malicious APKs and checking for presence of advertising networks.
     """
     examples = ""
-    author = "MWR InfoSecurity (@mwrlabs)"
+    author = "@HenryHoggard (@mwrlabs)"
     date = "2013-08-16"
     license = "BSD (3 clause)"
     path = ["scanner", "misc"]

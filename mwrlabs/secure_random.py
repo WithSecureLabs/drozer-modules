@@ -13,7 +13,7 @@ class SecureRandom(Module, common.FileSystem, common.PackageManager, common.Prov
     See: http://android-developers.blogspot.co.uk/2013/08/some-securerandom-thoughts.html
     """
     examples = ""
-    author = "MWR InfoSecurity (@mwrlabs)"
+    author = "@HenryHoggard (@mwrlabs)"
     date = "2013-08-13"
     license = "BSD (3 clause)"
     path = ["scanner", "misc"]
