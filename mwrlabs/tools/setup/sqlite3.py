@@ -68,8 +68,8 @@ class SQLite3(Module, common.Shell):
         Get the path to the SQLite3 binary on the local system.
         """
         if pie == True:
-            return os.path.join(os.path.dirname(__file__) ,  "pie","sqlite3")
+            return os.path.join(os.path.dirname(__file__) , "sqlite3", "pie","sqlite3")
         else:
-            return os.path.join(os.path.dirname(__file__) ,  "nopie","sqlite3")
+            return os.path.join(os.path.dirname(__file__) , "sqlite3", "nopie","sqlite3")
 
 
