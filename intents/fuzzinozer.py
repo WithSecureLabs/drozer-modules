@@ -185,22 +185,23 @@ def parse_logcat(file_name, fuzz_type, component, package, current_dir):
         lines = f.readlines()
         found_exception = False
         if lines is not None:
-            for line in lines:
-                if (line.startswith("F/") & ("type" in line)):
-                    with open("all_intents.txt", 'a + ') as intents_files:
-                        session = line.split("):")
+            for line in lines:              
+                if (("F" in line) & ("type:" in line)):
+                    with open(str(str(current_dir) +"/all_intents.txt"), 'a + ') as intents_files:
+                        session = line.split("F ")
                         intents_files.write(session[1])
-                if (("E AndroidRuntime" in line)):
+                if ("Caused by" in line):
+                    print str("LINE" + line+"\n")					
                     found_exception = True
                     exception_line = line
-                    exception = exception_line.split(":")[2].strip()
+                    exception = exception_line.split("by: ")[1].split(": ")[0]
                     new_file_name = str(current_dir) + "/Results_" + \
                         str(fuzz_type) + "_" + str(package) + "/seedfile_" + \
-                        str(component) + "_" + exception + ".txt"
-                    if os.path.isfile("all_intents.txt"):
-                        shutil.copy2("all_intents.txt", new_file_name)
-        if not(found_exception):
-            os.remove(file_name)
+                        str(component) + "_" + exception + ".txt"                   
+                    if os.path.isfile(str(str(current_dir) +"/all_intents.txt")):
+                        shutil.copy2(str(str(current_dir) +"/all_intents.txt"), new_file_name)
+            if not(found_exception):
+                os.remove(file_name)
 
 
 def string_generator(size=8, chars=string.ascii_uppercase + string.digits +
@@ -245,7 +246,7 @@ class Fuzzinozer(Module, common.PackageManager, common.Filters,
     description = "Android intent fuzzing module "
     examples = ""
     author = "Popescu Cristina Stefania "
-    date = "2016-02-05"
+    date = "2015-10-08"
     license = "3 clause BSD"
     path = ["intents"]
     permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
@@ -364,8 +365,8 @@ class Fuzzinozer(Module, common.PackageManager, common.Filters,
                 total_intents = self.run_seed_file(seed_file, device)
 
         if arguments.package_name or arguments.test_all:
-            if os.path.isfile("all_intents.txt"):
-                os.remove("all_intents.txt")
+            if os.path.isfile(str(str(self.current_dir) +"/all_intents.txt")):
+                os.remove(str(str(self.current_dir) +"/all_intents.txt"))
 
             if arguments.broadcast_intent:
                 for package in self.packageManager().getPackages():
@@ -706,3 +707,4 @@ class FuzzinozerPackageManager(common.PackageManager.PackageManagerProxy):
             for activity in activities:
                 activities_array.append(str(activity.name))
             return activities_array
+
