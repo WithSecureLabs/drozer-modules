@@ -25,7 +25,7 @@ class SecureRandom(Module, common.FileSystem, common.PackageManager, common.Prov
 
     def execute(self, arguments):
         if arguments.package_or_uri != None:
-            self.check_package(arguments.package_or_uri)
+            self.check_package(arguments.package_or_uri, arguments)
 
         else:
             for package in self.packageManager().getPackages(common.PackageManager.GET_PERMISSIONS):
