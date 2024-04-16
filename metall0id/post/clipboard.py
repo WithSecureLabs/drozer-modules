@@ -1,8 +1,7 @@
-from drozer import android
 from drozer.modules import common, Module
 
-class Clipboard(Module, common.FileSystem, common.ClassLoader):
 
+class Clipboard(Module, common.FileSystem, common.ClassLoader):
     name = "Retrieve and display the current clipboard text."
     description = "Retrieve and display the current clipboard text."
     examples = """
@@ -13,7 +12,7 @@ dz> run post.capture.clipboard
     date = "2014-04-30"
     license = "BSD (3 clause)"
     path = ["post", "capture"]
-    permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
+    permissions = ["com.WithSecure.dz.permissions.GET_CONTEXT"]
 
     def execute(self, arguments):
         con = self.getContext()
@@ -23,8 +22,8 @@ dz> run post.capture.clipboard
             item = clip_data.getItemAt(i)
             self.stdout.write("[*] Clipboard value: %s\n\n" % item.toString())
 
-class SetClipboard(Module, common.FileSystem, common.ClassLoader):
 
+class SetClipboard(Module, common.FileSystem, common.ClassLoader):
     name = "Put the specified text into the clipboard."
     description = "Put the specified text into the clipboard."
     examples = """
@@ -35,7 +34,7 @@ dz> run post.perform.setclipboard test123
     date = "2014-04-30"
     license = "BSD (3 clause)"
     path = ["post", "perform"]
-    permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
+    permissions = ["com.WithSecure.dz.permissions.GET_CONTEXT"]
 
     def add_arguments(self, parser):
         parser.add_argument("text", help="value to set the clipboard to")
