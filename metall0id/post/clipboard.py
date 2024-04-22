@@ -18,9 +18,9 @@ dz> run post.capture.clipboard
         con = self.getContext()
         clip = con.getSystemService(con.CLIPBOARD_SERVICE)
         clip_data = clip.getPrimaryClip()
-        for i in range(0, clip_data.getItemCount()):
+        for i in range(0, int(clip_data.getItemCount())):
             item = clip_data.getItemAt(i)
-            self.stdout.write("[*] Clipboard value: %s\n\n" % item.toString())
+            self.stdout.write("[*] Clipboard value: %s\n\n" % item.getText().toString())
 
 
 class SetClipboard(Module, common.FileSystem, common.ClassLoader):
@@ -42,6 +42,6 @@ dz> run post.perform.setclipboard test123
     def execute(self, arguments):
         con = self.getContext()
         clip = con.getSystemService(con.CLIPBOARD_SERVICE)
-        clip_data = self.klass("android.content.clip_data").newPlainText("", arguments.text)
+        clip_data = self.klass("android.content.ClipData").newPlainText("", arguments.text)
         clip.setPrimaryClip(clip_data)
         self.stdout.write("[*] Clipboard value set: %s\n\n" % arguments.text)
