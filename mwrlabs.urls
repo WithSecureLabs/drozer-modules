@@ -1,11 +1,9 @@
 import re
 
-from pydiesel.reflection import ReflectionException
-
 from drozer.modules import common, Module
 
-class WebURLs(Module, common.FileSystem, common.PackageManager, common.Provider, common.Strings, common.ZipFile):
 
+class WebURLs(Module, common.FileSystem, common.PackageManager, common.Provider, common.Strings, common.ZipFile):
     name = "Find HTTP and HTTPS URLs specified in packages."
     description = """
     Finds URLs with the HTTP or HTTPS schemes by searching the strings inside APK files.
@@ -17,7 +15,7 @@ class WebURLs(Module, common.FileSystem, common.PackageManager, common.Provider,
     date = "2013-08-16"
     license = "BSD (3 clause)"
     path = ["scanner", "misc"]
-    permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
+    permissions = ["com.WithSecure.dz.permissions.GET_CONTEXT"]
 
     def add_arguments(self, parser):
         parser.add_argument("-a", "--package", help="specify a package to search")
@@ -26,15 +24,14 @@ class WebURLs(Module, common.FileSystem, common.PackageManager, common.Provider,
 
     def execute(self, arguments):
         self.url_matcher = re.compile("http(s)?://[^\s\"']+")
-        if arguments.package != None:
+        if arguments.package is not None:
             self.check_package(arguments.package, arguments)
         else:
             for package in self.packageManager().getPackages(common.PackageManager.GET_PERMISSIONS):
                 try:
                     self.check_package(package.packageName, arguments)
-                except Exception, e:
-                    print str(e)
-
+                except Exception as e:
+                    print(e)
 
     def check_package(self, package, arguments):
         self.deleteFile("/".join([self.cacheDir(), "classes.dex"]))
@@ -46,23 +43,22 @@ class WebURLs(Module, common.FileSystem, common.PackageManager, common.Provider,
             strings = []
             if ".apk" in path:
                 dex_file = self.extractFromZip("classes.dex", path, self.cacheDir())
-                if dex_file != None:
+                if dex_file is not None:
                     strings = self.getStrings(dex_file.getAbsolutePath())
 
                     dex_file.delete()
-                    strings += self.getStrings(path.replace(".apk", ".odex")) 
-            elif (".odex" in path):
+                    strings += self.getStrings(path.replace(".apk", ".odex"))
+            elif ".odex" in path:
                 strings = self.getStrings(path)
             else:
                 continue
-
 
             for s in strings:
                 m = self.url_matcher.search(s)
                 if m is not None:
                     if m.group(1) == "s":
                         https_urls.append(m.group(0))
-                    elif m.group(1) == None:
+                    elif m.group(1) is None:
                         http_urls.append(m.group(0))
 
             if (len(http_urls) > 0 and not arguments.https) or (len(https_urls) > 0 and not arguments.http):
@@ -78,4 +74,3 @@ class WebURLs(Module, common.FileSystem, common.PackageManager, common.Provider,
 
             if (len(http_urls) > 0 and not arguments.https) or (len(https_urls) > 0 and not arguments.http):
                 self.stdout.write("\n")
-
