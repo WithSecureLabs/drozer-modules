@@ -1,7 +1,7 @@
 drozer Modules
 ==============
 
-drozer is an security testing framework for Android.
+drozer is a security testing framework for Android.
 
 drozer allows you to search for security vulnerabilities in apps and devices by assuming the role of an app and interacting with the Android Runtime, other apps' IPC endpoints and the underlying OS.
 
