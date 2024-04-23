@@ -1,7 +1,7 @@
 from drozer.modules import common, Module
 
-class Read(Module, common.Provider, common.TableFormatter, common.ClassLoader):
 
+class Read(Module, common.Provider, common.TableFormatter, common.ClassLoader):
     name = "Read all contacts"
     description = "Read all contacts and filter by names or cellphone numbers. Relies on the agent having the READ_CONTACTS permission."
     examples = """
@@ -15,8 +15,8 @@ dz> run post.contacts.read
     date = "2014-11-16"
     license = "BSD (3 clause)"
     path = ["post", "contacts"]
-    permissions = ["android.permission.READ_CONTACTS", "com.mwr.dz.permissions.GET_CONTEXT"]
-    
+    permissions = ["android.permission.READ_CONTACTS", "com.WithSecure.dz.permissions.GET_CONTEXT"]
+
     def add_arguments(self, parser):
         parser.add_argument("-f", "--filter", default=None, help="filter results by a keyword")
 
@@ -34,7 +34,7 @@ dz> run post.contacts.read
             filt += number + " like '%" + arguments.filter + "%'"
             c = self.contentResolver().query(uri, {displayName, number}, filt)
 
-        if c != None:
+        if c is not None:
             rows = self.getResultSet(c)
             self.print_table(rows, show_headers=False, vertical=False)
         else:

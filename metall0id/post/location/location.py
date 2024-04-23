@@ -1,7 +1,7 @@
 from drozer.modules import common, Module
 
-class Location(Module, common.ClassLoader):
 
+class Location(Module, common.ClassLoader):
     name = "Get last known GPS coordinates of user"
     description = "Show the last known location of the user making use of the most accurate location source available."
     examples = """
@@ -13,7 +13,7 @@ Google maps link: https://www.google.com/maps/place/37.422217,-122.084101
     date = "2014-11-15"
     license = "BSD (3 clause)"
     path = ["post", "capture"]
-    permissions = ["com.mwr.dz.permissions.GET_CONTEXT"]
+    permissions = ["com.WithSecure.dz.permissions.GET_CONTEXT"]
 
     def execute(self, arguments):
 
